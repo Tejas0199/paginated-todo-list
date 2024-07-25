@@ -1,0 +1,45 @@
+.btn {
+	padding: 8px 12px;
+	outline: none;
+	background: none;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	color: rgb(76, 76, 255);
+}
+
+.btn.disabled {
+	color: gray;
+}
+
+.btn.active {
+	border-radius: 0;
+	border-bottom: 1px solid rgb(76, 76, 255);
+}
+
+.btn:disabled {
+	color: gray;
+	cursor: not-allowed;
+}
+
+.btn.primary {
+	background-color: rgb(76, 76, 255);
+	border: none;
+	color: white;
+	font-weight: 700;
+}
+
+.btn.primary:hover {
+	background-color: rgb(58, 58, 235);
+}
+
+.btn.secondary {
+	border: 1px solid black;
+	font-weight: 700;
+	color: rgb(48, 48, 48);
+}
+
+.btn.secondary:hover {
+	background-color: rgba(128, 128, 128, 0.152);
+	
+}

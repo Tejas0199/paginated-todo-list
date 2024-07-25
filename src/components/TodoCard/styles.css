@@ -1,0 +1,23 @@
+.todo-card {
+	padding: 8px;
+	border-left: 5px solid rgb(244, 14, 133); 
+	border-radius: 5px;
+	box-shadow: 0 0 1px black;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.todo-card>div {
+	display: flex;
+	align-items: baseline;
+	justify-content: start;
+	gap: 10px;
+}
+.todo-card>div>p {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.todo-card> p:nth-child(3) {
+	justify-self: center;
+}

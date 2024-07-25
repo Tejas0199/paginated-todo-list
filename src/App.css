@@ -1,0 +1,65 @@
+.App {
+  margin: auto;
+  width: min(900px, 100vw);
+}
+
+
+.action-container {
+  margin-top: 50px;
+  text-align: end;
+}
+
+.todo-container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo-container-header>div {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.todo-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type='checkbox'] {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem; 
+  margin-right: 10px;
+  accent-color: rgb(244, 14, 133);
+}
+
+label {
+  font-size: 14px;
+}
+
+label.disabled {
+  color: gray;
+}
+
+.entity> label {
+  margin-right: 10px;
+}
+
+label[for='multi-select'] {
+  padding-right: 10px;
+  border-right: 2px solid gray;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.empty-text {
+  color: rgb(173, 173, 173);
+  text-align: center;
+}
