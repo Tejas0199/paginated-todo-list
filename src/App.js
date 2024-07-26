@@ -13,6 +13,7 @@ function App() {
   const [newTodo, setNewTodo] = useState({});
   const [todos, setTodos] = useState([]);
   const [ pagination, setPagination ] = useState({ page: 1, entity: 5 });
+  const { page, entity } = pagination;
   const uid = useRef(1000); 
 
   const onCreatehandler = () => {
@@ -28,7 +29,7 @@ function App() {
     setNewTodo({});
   }
   const onEditClickHandler = (index) => {
-    setNewTodo(todos[index]);
+    setNewTodo(todos[(page - 1) * entity + index]);
     setOpenModal(true);
   }
 
@@ -38,17 +39,16 @@ function App() {
 
   const onSelectHandler = (index, type = 'SINGLE', { target: { checked }}) => {
       if(type === 'SINGLE') {
-        if(todos[index]) todos[index].isSelected = checked
+        if(todos[(page - 1) * entity + index]) todos[(page - 1) * entity + index].isSelected = checked
         setTodos([...todos])
       } else {
-        const { page, entity } = pagination;
         setTodos(todos.map((todo, index) => {
           if((page - 1) * entity <= index && index < page * entity) todo.isSelected = checked
           return todo
         }))
       }
   }
-  console.log('render')
+
   const getPaginationBtns = () => {
     const btns = [];
     for(let i = 1; i <= Math.ceil(todos.length / pagination.entity); i++) {
@@ -56,7 +56,6 @@ function App() {
     }
     return btns
   }
-  const { page, entity } = pagination;
   const pageTodoList = todos.slice((page - 1) * entity, page * entity);
   return (
     <div className="App">
@@ -76,7 +75,14 @@ function App() {
           </div>
           <div className='entity'>
             <label htmlFor='entity'>Entity</label>
-            <input type='number' id='entity' value={entity || ''} min={5} max={10} onChange={({ target: {value}}) => setPagination({ ...pagination, entity: value <= 10 ? Number(value) : entity})}/>
+            <select id='entity' onChange={({ target: {value}}) => setPagination({ ...pagination, entity: value <= 10 ? Number(value) : entity})}>
+              <option value={5}>5</option>
+              <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+              <option value={9}>9</option>
+              <option value={10}>10</option>
+            </select>
           </div>
         </div>
         {
